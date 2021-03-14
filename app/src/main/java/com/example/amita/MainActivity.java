@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     pl.droidsonroids.gif.GifImageView animation;
     TextView text;
     int i =1;
+    int a =10;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
 
