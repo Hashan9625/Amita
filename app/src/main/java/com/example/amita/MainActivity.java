@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -17,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     pl.droidsonroids.gif.GifImageView animation;
     TextView text;
+    TextView text2;
     int i =1;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
@@ -28,6 +34,28 @@ public class MainActivity extends AppCompatActivity {
 
         animation = (pl.droidsonroids.gif.GifImageView)findViewById(R.id.ani);
         text = (TextView)findViewById(R.id.tex);
+        text2= (TextView)findViewById(R.id.tex2);
+
+
+//        chenge.getDisplay(no)
+
+        if (! Python.isStarted()) {
+            Python.start(new AndroidPlatform(this));
+        }
+        //start python
+
+        Python py = Python.getInstance();
+        PyObject pyobj = py.getModule("ai");
+        PyObject ai = pyobj.callAttr("main");
+
+        PyObject pyobWar = py.getModule("wardha");
+        PyObject obImgEom = pyobWar.callAttr("main");
+
+        PyObject pyobTh = py.getModule("thisari");
+        PyObject obVoiCon = pyobTh.callAttr("main");
+
+        text2.setText(ai.toString()+obImgEom.toString()+obVoiCon.toString());
+
 
     }
     public void onClick(View view){
