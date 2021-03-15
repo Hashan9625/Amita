@@ -48,6 +48,14 @@
                 android:id="@+id/tex"
                 android:layout_gravity="center"
                 ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tex2"
+                android:layout_gravity="center"
+                ></TextView>
+
         </LinearLayout>
     </ScrollView>
 
