@@ -1,2 +1,2 @@
-def main():
-    return "hashan"
+def main(msg, emotion):
+    return msg

@@ -1,7 +1,8 @@
-package com.example.amita;
+package com.example.amita.OnBoarding.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.chaquo.python.Python;
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,30 +15,29 @@ import android.widget.Toast;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+import com.example.amita.OnBoarding.Interactor.OnBoardingInteractor;
+import com.example.amita.R;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
-
+public class OnBoardingView extends AppCompatActivity {
+    OnBoardingInteractor interactor = new OnBoardingInteractor(this);
     pl.droidsonroids.gif.GifImageView animation;
-    TextView text;
-    TextView text2;
-    int i =1;
+    TextView spokeText;
+    TextView response;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         animation = (pl.droidsonroids.gif.GifImageView)findViewById(R.id.ani);
-        text = (TextView)findViewById(R.id.tex);
-        text2= (TextView)findViewById(R.id.tex2);
-
-
-//        chenge.getDisplay(no)
+        spokeText = (TextView)findViewById(R.id.speakedText);
+        response = (TextView)findViewById(R.id.response);
 
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
@@ -45,16 +45,13 @@ public class MainActivity extends AppCompatActivity {
         //start python
 
         Python py = Python.getInstance();
-        PyObject pyobj = py.getModule("ai");
-        PyObject ai = pyobj.callAttr("main");
+        PyObject ai = py.getModule("ai");
+        PyObject main = ai.callAttr("main");
 
-        PyObject pyobWar = py.getModule("wardha");
-        PyObject obImgEom = pyobWar.callAttr("main");
+        interactor.getResponses(main);
 
-        PyObject pyobTh = py.getModule("thisari");
-        PyObject obVoiCon = pyobTh.callAttr("main");
 
-        text2.setText(ai.toString()+obImgEom.toString()+obVoiCon.toString());
+        response.setText(main.toString());
 
 
     }
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK && null != data) {
 
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    text.setText(result.get(0));
+                    spokeText.setText(result.get(0));
                     que = result.get(0);
                     display();
                 }
