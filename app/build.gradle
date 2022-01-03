@@ -17,14 +17,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            abiFilters "armeabi-v7a", "x86"
         }
 
 //        file path of python file in your machine
         python {
-            buildPython "C:/Program Files/Python3/python.exe"
+            buildPython "C:/Users/Hashan/AppData/Local/Programs/Python/Python37/python.exe"
             pyc {
                 src false
+            }
+
+            pip{
+                install "nltk"
             }
         }
 //  give source folder to python
