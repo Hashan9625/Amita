@@ -28,6 +28,7 @@ android {
             }
 
             pip{
+                install "numpy"
                 install "nltk"
             }
         }

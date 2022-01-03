@@ -1,6 +1,6 @@
 # from nltk.stem.api import StemmerI
 # import nltk
-# import numpy as np
+import numpy as np
 import pickle
 from os.path import dirname, join
 import json
@@ -10,8 +10,11 @@ def main():
 
     intents = json.loads(open(filename).read())
     words = pickle.load(open(join(dirname(__file__),'model/words.pkl'), 'rb'))
+    classes = pickle.load(open(join(dirname(__file__),'model/classes.pkl'), 'rb'))
+
+    data = np.zeros(5)
     print("-------------------------------"+str(words))
-    return "  hhh " + str(words)
+    return "  > " + str(data)
 
 
 
