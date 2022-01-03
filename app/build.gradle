@@ -30,6 +30,7 @@ android {
             pip{
                 install "numpy"
                 install "nltk"
+                install "tensorflow"
             }
         }
 //  give source folder to python

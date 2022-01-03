@@ -1,9 +1,10 @@
 # from nltk.stem.api import StemmerI
-# import nltk
+import nltk
 import numpy as np
 import pickle
 from os.path import dirname, join
 import json
+from tensorflow.keras.models import load_model
 # from ntlk.chat.util import Chat
 def main():
     filename = join(dirname(__file__),'model/amita.json')
