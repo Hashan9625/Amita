@@ -26,7 +26,6 @@ android {
             pyc {
                 src false
             }
-
             pip{
                 install "numpy"
                 install "nltk"

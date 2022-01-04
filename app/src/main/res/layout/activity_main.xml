@@ -39,6 +39,6 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:onClick="onClick"
-        android:text="OK" />
+        android:text="ask" />
 
 </RelativeLayout>

@@ -1,5 +1,5 @@
 {
-   "intents":[
+   "groups":[
       {
          "tag":"greeting",
          "patterns":[
@@ -12,7 +12,6 @@
             "Good day"
          ],
          "responses":[
-
 	         "Hi there, how can I help you?",
             " Good to see you again",
             " Hello, thanks for asking",
@@ -88,7 +87,6 @@
          "responses":[
             "I am a virtual friend of Amita and I am sensitive", 
 	    "I am Amita and I am always be your virtual friend",
-
             "I built for my member's final year project at Rajarata University",
 	   "I am Amita and I always be with your to share your anything and be your side"
 

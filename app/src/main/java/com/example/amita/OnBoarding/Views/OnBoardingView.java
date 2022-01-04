@@ -28,6 +28,8 @@ public class OnBoardingView extends AppCompatActivity {
     TextView response;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
+    Python py;
+    PyObject ai;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -43,15 +45,9 @@ public class OnBoardingView extends AppCompatActivity {
             Python.start(new AndroidPlatform(this));
         }
         //start python
-
-        Python py = Python.getInstance();
-        PyObject ai = py.getModule("ai");
-        PyObject main = ai.callAttr("main");
-
-        interactor.getResponses(main);
-
-
-        response.setText(main.toString());
+        py = Python.getInstance();
+        ai = py.getModule("ai");
+//        interactor.getResponses(main);
 
 
     }
@@ -92,6 +88,10 @@ public class OnBoardingView extends AppCompatActivity {
                     spokeText.setText(result.get(0));
                     que = result.get(0);
                     display();
+
+
+                    PyObject main = ai.callAttr("main",que,1);
+                    response.setText(main.toString());
                 }
                 break;
             }
