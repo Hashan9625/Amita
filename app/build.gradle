@@ -30,6 +30,12 @@ android {
                 install "numpy"
                 install "nltk"
                 install "tensorflow"
+                install "pandas"
+                install "matplotlib"
+
+//                 A requirement specifier, with or without a version number:
+                install "scipy"
+                install "requests==2.24.0"
             }
         }
 //  give source folder to python

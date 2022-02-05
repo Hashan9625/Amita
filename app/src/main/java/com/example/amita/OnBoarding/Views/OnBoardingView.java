@@ -89,7 +89,6 @@ public class OnBoardingView extends AppCompatActivity {
                     que = result.get(0);
                     display();
 
-
                     PyObject main = ai.callAttr("main",que,1);
                     response.setText(main.toString());
                 }

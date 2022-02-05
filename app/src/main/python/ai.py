@@ -5,35 +5,36 @@ import numpy as np
 import pickle
 from os.path import dirname, join
 import json
+from tensorflow import keras
 from tensorflow.keras.models import load_model
 stemmer = nltk.stem.PorterStemmer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 import random
+import tensorflow
+from tensorflow.keras.models import load_model
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+while not nltk.download('averaged_perceptron_tagger'):
+    print("Retrying download - averaged_perceptron_tagger")
+
+while not nltk.download('punkt'):
+    print("Retrying download - punkt")
+
+while not nltk.download('wordnet'):
+    print("Retrying download - wordnet")
+
+while not nltk.download('stopwords'):
+    print("Retrying download - stopwords")
 
 def main(sentence, emotion):
-    nltk.download('stopwords')
-    nltk.download('wordnet')
-    nltk.download('punkt')
-    nltk.download('averaged_perceptron_tagger')
-
-    # with open(join(dirname(__file__),'model/model_amita'), 'rb') as f:
-    #     model = pickle.load(f)
-
-    # from tensorflow.keras.models import load_model
-    # with open(join(dirname(__file__),'model/model_amita'), 'rb') as fModel:
-
-    # model = pickle.load(open(join(dirname(__file__),'model/model_amita.pkl', 'rb')
-    # model = pickle.load(open(join(dirname(__file__),'model/model_amita.pkl'), 'rb'))
-
-    filename = join(dirname(__file__),'model/amita.json')
-    intents = json.loads(open(filename).read())
-    words = pickle.load(open(join(dirname(__file__),'model/words.pkl'), 'rb'))
-    classes = pickle.load(open(join(dirname(__file__),'model/classes.pkl'), 'rb'))
-
-    return " Response > "
+    print(sentence)
+    return amita_response(sentence,2)
 
 def clean_up_sentence(sentence):
-    # tokenize
+
+# tokenize
     sentence_words = nltk.word_tokenize(sentence)
     # lemmatize
     sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
@@ -54,7 +55,11 @@ def bow(sentence, words, show_details=True):
 
 # return set of responce
 def predict_class(sentence, model):
+    words = pickle.load(open(join(dirname(__file__),'model/words.pkl'), 'rb'))
+    tags = pickle.load(open(join(dirname(__file__),'model/classes.pkl'), 'rb'))
+
     p = bow(sentence, words, show_details=False)
+    print(p)
     res = model.predict(np.array([p]))[0]
     ERROR_THRESHOD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOD]
@@ -67,25 +72,22 @@ def predict_class(sentence, model):
 
 #pic emotion response
 def getResponse(ints, groups_json, emotion):
+
     tag = ints[0]['groups']
-    list_of_group = groups_json['groups']
-    for i in list_of_group:
-        if(i['tag']==tag):
+    list_of_intents = groups_json['intents']
+    for i in list_of_intents:
+        if i['tag'] == tag:
             # print(i['responses'])
             result = i['responses'][emotion]
             break
     return result
 
 def amita_response(msg, emotion):
+    filenameModel = join(dirname(__file__),'model/model_amita.h5')
+    filename = join(dirname(__file__),'model/amita.json')
+    intents = json.loads(open(filename).read())
+
+    model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    # print(ints)
     return res
-
-# print(main())
-# with open(filename, 'r', encoding='utf8', errors="ignore") as fin:
-# data = fin.read().lower()
-# data = np.zeros(5)
-
-
-    # print("-------------------------------"+str(words))
