@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class OnBoardingView extends AppCompatActivity {
     public String que ;
     Python py;
     PyObject ai;
+    TextToSpeech textToSpeech;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -49,6 +51,15 @@ public class OnBoardingView extends AppCompatActivity {
         ai = py.getModule("ai");
 //        interactor.getResponses(main);
 
+        textToSpeech = new TextToSpeech(getApplicationContext()
+        , new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS) {
+                    int lang = textToSpeech.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
 
     }
     public void onClick(View view){
@@ -90,7 +101,10 @@ public class OnBoardingView extends AppCompatActivity {
                     display();
 
                     PyObject main = ai.callAttr("main",que,1);
-                    response.setText(main.toString());
+                    String responseText = main.toString();
+                    response.setText(responseText);
+
+                    int speech = textToSpeech.speak(responseText,TextToSpeech.QUEUE_FLUSH,null);
                 }
                 break;
             }

@@ -33,8 +33,7 @@ def main(sentence, emotion):
     return amita_response(sentence,2)
 
 def clean_up_sentence(sentence):
-
-# tokenize
+    # tokenize
     sentence_words = nltk.word_tokenize(sentence)
     # lemmatize
     sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
@@ -59,7 +58,6 @@ def predict_class(sentence, model):
     tags = pickle.load(open(join(dirname(__file__),'model/classes.pkl'), 'rb'))
 
     p = bow(sentence, words, show_details=False)
-    print(p)
     res = model.predict(np.array([p]))[0]
     ERROR_THRESHOD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOD]
