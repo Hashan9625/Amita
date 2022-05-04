@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chaquo.python.Python;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +25,11 @@ import com.chaquo.python.android.AndroidPlatform;
 import com.example.amita.OnBoarding.Interactor.OnBoardingInteractor;
 import com.example.amita.R;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class OnBoardingView extends AppCompatActivity {
+public class OnBoardingView extends AppCompatActivity implements View.OnClickListener {
     OnBoardingInteractor interactor = new OnBoardingInteractor(this);
     pl.droidsonroids.gif.GifImageView animation;
     TextView spokeText;
@@ -31,7 +38,14 @@ public class OnBoardingView extends AppCompatActivity {
     public String que ;
     Python py;
     PyObject ai;
+    PyObject emotionDetectionInVoice;
+    PyObject emotionDetectionPy;
     TextToSpeech textToSpeech;
+    ImageView detectImage;
+
+    BitmapDrawable drawable;
+    Bitmap bitmap;
+    String imageString = "";
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -42,6 +56,7 @@ public class OnBoardingView extends AppCompatActivity {
         animation = (pl.droidsonroids.gif.GifImageView)findViewById(R.id.ani);
         spokeText = (TextView)findViewById(R.id.speakedText);
         response = (TextView)findViewById(R.id.response);
+        detectImage = findViewById(R.id.detectImage);
 
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
@@ -49,7 +64,7 @@ public class OnBoardingView extends AppCompatActivity {
         //start python
         py = Python.getInstance();
         ai = py.getModule("ai");
-//        interactor.getResponses(main);
+        emotionDetectionInVoice = py.getModule("emotionDetectionInVoice");
 
         textToSpeech = new TextToSpeech(getApplicationContext()
         , new TextToSpeech.OnInitListener() {
@@ -61,11 +76,42 @@ public class OnBoardingView extends AppCompatActivity {
             }
         });
 
-    }
-    public void onClick(View view){
-        promptSpeechInput();
+        findViewById(R.id.ask).setOnClickListener(this);
+//        cameraProviderFu
     }
 
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ask:
+                    promptSpeechInput();
+//                    emotionDetection();
+                break;
+        }
+    }
+
+    private void emotionDetection() {
+        drawable = (BitmapDrawable)detectImage.getDrawable();
+        bitmap = drawable.getBitmap();
+        imageString = getStringImage(bitmap);
+
+        emotionDetectionPy =  py.getModule("emotionDetection");
+        PyObject main = emotionDetectionPy.callAttr("main",imageString);
+        String responseText = main.toString();
+        Log.d(ContentValues.TAG,"emotionDetection--------------------------------------------"+responseText);
+        interactor.emotionDetection();
+    }
+
+    private String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,baos);
+
+        byte[] imageByte = baos.toByteArray();
+
+        String encodedImage = android.util.Base64.encodeToString(imageByte, Base64.DEFAULT);
+        return encodedImage;
+    }
 
     /**
      * Showing google speech input dialog
@@ -99,6 +145,10 @@ public class OnBoardingView extends AppCompatActivity {
                     spokeText.setText(result.get(0));
                     que = result.get(0);
                     display();
+
+                    PyObject emotionOutput = emotionDetectionInVoice.callAttr("main",que);
+                    String emotionOutputString = emotionOutput.toString();
+                    Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- ashan output--- > "+emotionOutputString);
 
                     PyObject main = ai.callAttr("main",que,1);
                     String responseText = main.toString();
@@ -199,5 +249,6 @@ public class OnBoardingView extends AppCompatActivity {
         }
 
     }
+
 
 }

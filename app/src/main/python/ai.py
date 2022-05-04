@@ -29,8 +29,9 @@ while not nltk.download('stopwords'):
     print("Retrying download - stopwords")
 
 def main(sentence, emotion):
+    print("----------------")
     print(sentence)
-    return amita_response(sentence,2)
+    return amita_response(sentence,0)
 
 def clean_up_sentence(sentence):
     # tokenize

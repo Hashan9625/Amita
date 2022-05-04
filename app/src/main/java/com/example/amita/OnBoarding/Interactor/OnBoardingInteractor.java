@@ -18,4 +18,7 @@ public class OnBoardingInteractor {
 
     public void getResponses(PyObject main) {
     }
+
+    public void emotionDetection() {
+    }
 }

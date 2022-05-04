@@ -24,16 +24,26 @@
         android:textColor="@color/black"
         android:textAlignment="textEnd"/>
 
+    <ImageView
+        android:id="@+id/detectImage"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:src="@drawable/test"
+        android:layout_below="@+id/response"
+
+        />
+
+
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/ani"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/response"
-        android:layout_above="@id/but"
+        android:layout_below="@id/detectImage"
+        android:layout_above="@id/ask"
         android:src="@drawable/normal"/>
 
     <Button
-        android:id="@+id/but"
+        android:id="@+id/ask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
