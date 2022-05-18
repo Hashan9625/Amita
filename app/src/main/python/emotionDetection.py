@@ -18,9 +18,9 @@ def main(data):
     np_data = np.fromstring(decoded_data, np.uint8)
     test_img = cv2.imdecode(np_data, cv2.IMREAD_UNCHANGED)
 
-    # load trained model
-    filename = join(dirname(__file__),'EmotionDetectionModel/facedetection.h5')
-    # model = load_model(filename)
+    # # load trained model
+    # filename = join(dirname(__file__),'EmotionDetectionModel/facedetection.h5')
+    # # model = load_model(filename)
 
     gray_img = cv2.cvtColor(test_img, cv2.COLOR_BGR2RGB)
 

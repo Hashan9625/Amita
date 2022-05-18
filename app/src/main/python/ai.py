@@ -29,9 +29,8 @@ while not nltk.download('stopwords'):
     print("Retrying download - stopwords")
 
 def main(sentence, emotion):
-    print("----------------")
     print(sentence)
-    return amita_response(sentence,0)
+    return amita_response(sentence,emotion)
 
 def clean_up_sentence(sentence):
     # tokenize
@@ -55,8 +54,8 @@ def bow(sentence, words, show_details=True):
 
 # return set of responce
 def predict_class(sentence, model):
-    words = pickle.load(open(join(dirname(__file__),'model/words.pkl'), 'rb'))
-    tags = pickle.load(open(join(dirname(__file__),'model/classes.pkl'), 'rb'))
+    words = pickle.load(open(join(dirname(__file__),'VerbalResponseModel/words.pkl'), 'rb'))
+    tags = pickle.load(open(join(dirname(__file__),'VerbalResponseModel/classes.pkl'), 'rb'))
 
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
@@ -82,11 +81,11 @@ def getResponse(ints, groups_json, emotion):
     return result
 
 def amita_response(msg, emotion):
-    filenameModel = join(dirname(__file__),'model/model_amita.h5')
-    filename = join(dirname(__file__),'model/amita.json')
+    filenameModel = join(dirname(__file__),'VerbalResponseModel/model_amita.h5')
+    filename = join(dirname(__file__),'VerbalResponseModel/amita.json')
     intents = json.loads(open(filename).read())
 
     model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    return res
+    return res+"  tag> "+ints[0]['groups']+"  emotion> "+str(emotion)

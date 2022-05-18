@@ -24,14 +24,32 @@
         android:textColor="@color/black"
         android:textAlignment="textEnd"/>
 
+    <Button
+        android:id="@+id/emotion"
+        android:layout_margin="16dp"
+        android:layout_below="@id/response"
+        android:text="next emotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/emotionText"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="38sp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/response"
+        android:layout_toEndOf="@id/emotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <ImageView
+        android:visibility="invisible"
         android:id="@+id/detectImage"
         android:layout_width="112dp"
         android:layout_height="112dp"
         android:src="@drawable/test"
-        android:layout_below="@+id/response"
-
-        />
+        android:layout_below="@+id/response"/>
 
 
     <pl.droidsonroids.gif.GifImageView

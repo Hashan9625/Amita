@@ -33,19 +33,21 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
     OnBoardingInteractor interactor = new OnBoardingInteractor(this);
     pl.droidsonroids.gif.GifImageView animation;
     TextView spokeText;
-    TextView response;
+    private TextView response, emotionText;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
     Python py;
     PyObject ai;
     PyObject emotionDetectionInVoice;
     PyObject emotionDetectionPy;
-    TextToSpeech textToSpeech;
+    private TextToSpeech textToSpeech;
     ImageView detectImage;
 
     BitmapDrawable drawable;
     Bitmap bitmap;
     String imageString = "";
+    private int emotion = 0;
+    String[] emotionArray = {"Happy", "Sad", "Neutral", "Fear"};
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -53,10 +55,13 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        animation = (pl.droidsonroids.gif.GifImageView)findViewById(R.id.ani);
-        spokeText = (TextView)findViewById(R.id.speakedText);
-        response = (TextView)findViewById(R.id.response);
+        animation = findViewById(R.id.ani);
+        spokeText = findViewById(R.id.speakedText);
+        response = findViewById(R.id.response);
         detectImage = findViewById(R.id.detectImage);
+        emotionText = findViewById(R.id.emotionText);
+
+        emotionText.setText(emotionArray[emotion]);
 
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
@@ -77,6 +82,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         });
 
         findViewById(R.id.ask).setOnClickListener(this);
+        findViewById(R.id.emotion).setOnClickListener(this);
 //        cameraProviderFu
     }
 
@@ -87,6 +93,14 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
             case R.id.ask:
                     promptSpeechInput();
 //                    emotionDetection();
+                break;
+            case R.id.emotion:
+                if(emotion == 3)
+                    emotion = 0;
+                else
+                    emotion++;
+
+                emotionText.setText(emotionArray[emotion]);
                 break;
         }
     }
@@ -144,17 +158,17 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     spokeText.setText(result.get(0));
                     que = result.get(0);
-                    display();
 
                     PyObject emotionOutput = emotionDetectionInVoice.callAttr("main",que);
                     String emotionOutputString = emotionOutput.toString();
                     Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- ashan output--- > "+emotionOutputString);
 
-                    PyObject main = ai.callAttr("main",que,1);
-                    String responseText = main.toString();
+                    PyObject verbalResponse = ai.callAttr("main",que,emotion);
+                    String responseText = verbalResponse.toString();
                     response.setText(responseText);
+                    display(responseText);
 
-                    int speech = textToSpeech.speak(responseText,TextToSpeech.QUEUE_FLUSH,null);
+                    textToSpeech.speak(responseText,TextToSpeech.QUEUE_FLUSH,null);
                 }
                 break;
             }
@@ -162,90 +176,46 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void display(){
+    private void display(String responseText){
 
-        if(que.contains("hi"))
-        {
+        if(responseText.contains("tag> 01")) {
             animation.setImageResource(R.drawable.giphya);
-        }
-
-        if(que.contains("hello"))
-        {
+        }else if(responseText.contains("tag> 02")) {
             animation.setImageResource(R.drawable.giphyhapy);
-        }
-        if(que.contains("love"))
-        {
+        }else if(responseText.contains("tag> 03")) {
             animation.setImageResource(R.drawable.giphyc);
-        }
-        if(que.contains("like"))
-        {
+        }else if(responseText.contains("tag> 04")) {
             animation.setImageResource(R.drawable.giphyd);
-        }
-        if(que.contains("bad"))
-        {
+        }else if(responseText.contains("tag> 05")) {
             animation.setImageResource(R.drawable.giphysad);
-        }
-        if(que.contains("may") || que.contains("ask"))
-        {
+        }else if(responseText.contains("tag> 06")) {
             animation.setImageResource(R.drawable.may);
-        }
-        if(que.contains("idiot") || que.contains("donkey"))
-        {
+        }else if(responseText.contains("tag> 07")) {
             animation.setImageResource(R.drawable.idiot);
-        }
-        if(que.contains("big") || que.contains("long"))
-        {
+        }else if(responseText.contains("tag> 08")) {
             animation.setImageResource(R.drawable.big);
-        }
-
-        if(que.contains("do you") || que.contains("know"))
-        {
+        }else if(responseText.contains("tag> 09")) {
             animation.setImageResource(R.drawable.doyou);
-        }
-
-        if(que.contains("right") || que.contains("correct"))
-        {
+        }else if(responseText.contains("tag> 10")) {
             animation.setImageResource(R.drawable.right);
-        }
-
-        if(que.contains("crazy") || que.contains("funny"))
-        {
+        }else if(responseText.contains("tag> 11")) {
             animation.setImageResource(R.drawable.crazy);
-        }
-
-        if(que.contains("wanna") || que.contains(" me "))
-        {
+        }else if(responseText.contains("tag> 12")) {
             animation.setImageResource(R.drawable.iwanna);
-        }
-
-        if(que.contains("may") || que.contains("ask"))
-        {
+        }else if(responseText.contains("tag> 13")) {
             animation.setImageResource(R.drawable.may);
-        }
-
-        if(que.contains("are you"))
-        {
+        }else if(responseText.contains("tag> 14")) {
             animation.setImageResource(R.drawable.areyou);
-        }
-
-        if(que.contains("beautiful") || que.contains("pretty"))
-        {
+        }else if(responseText.contains("tag> 15")) {
             animation.setImageResource(R.drawable.beautiful);
-        }
-
-        if(que.contains("how"))
-        {
+        }else if(responseText.contains("tag> 16")) {
             animation.setImageResource(R.drawable.how);
-        }
-
-        if(que.contains("ok"))
-        {
+        }else if(responseText.contains("tag> 17")) {
             animation.setImageResource(R.drawable.ok);
-        }
-
-        if(que.contains("what"))
-        {
+        }else if(responseText.contains("tag> 18")) {
             animation.setImageResource(R.drawable.what);
+        } else {
+            animation.setImageResource(R.drawable.ic_baseline_image_search_24);
         }
 
     }
