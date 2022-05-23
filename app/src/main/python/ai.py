@@ -70,14 +70,16 @@ def predict_class(sentence, model):
 
 #pic emotion response
 def getResponse(ints, groups_json, emotion):
-
-    tag = ints[0]['groups']
-    list_of_intents = groups_json['intents']
-    for i in list_of_intents:
-        if i['tag'] == tag:
-            # print(i['responses'])
-            result = i['responses'][emotion]
-            break
+    if len(ints) != 0:
+        tag = ints[0]['groups']
+        list_of_intents = groups_json['intents']
+        for i in list_of_intents:
+            if i['tag'] == tag:
+                # print(i['responses'])
+                result = i['responses'][emotion]
+                break
+    else:
+        result = "Can you say again please"
     return result
 
 def amita_response(msg, emotion):
@@ -88,4 +90,4 @@ def amita_response(msg, emotion):
     model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    return res+"  tag> "+ints[0]['groups']+"  emotion> "+str(emotion)
+    return res +"  tag> "+ints[0]['groups']+"  emotion> "+str(emotion)

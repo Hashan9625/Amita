@@ -37,7 +37,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public String que ;
     Python py;
-    PyObject ai;
+    PyObject ai, aiWhatsAppChat;
     PyObject emotionDetectionInVoice;
     PyObject emotionDetectionPy;
     private TextToSpeech textToSpeech;
@@ -47,7 +47,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
     Bitmap bitmap;
     String imageString = "";
     private int emotion = 0;
-    String[] emotionArray = {"Happy", "Sad", "Neutral", "Fear"};
+    String[] emotionArray = {"", "happy", "sad", "neutral", "fear"};
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -69,6 +69,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         //start python
         py = Python.getInstance();
         ai = py.getModule("ai");
+        aiWhatsAppChat = py.getModule("aiWhatsAppChat");
         emotionDetectionInVoice = py.getModule("emotionDetectionInVoice");
 
         textToSpeech = new TextToSpeech(getApplicationContext()
@@ -95,7 +96,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
 //                    emotionDetection();
                 break;
             case R.id.emotion:
-                if(emotion == 3)
+                if(emotion == 4)
                     emotion = 0;
                 else
                     emotion++;
@@ -163,7 +164,8 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                     String emotionOutputString = emotionOutput.toString();
                     Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- ashan output--- > "+emotionOutputString);
 
-                    PyObject verbalResponse = ai.callAttr("main",que,emotion);
+//                    PyObject verbalResponse = ai.callAttr("main",que,emotion);
+                    PyObject verbalResponse = aiWhatsAppChat.callAttr("main",que,"");
                     String responseText = verbalResponse.toString();
                     response.setText(responseText);
                     display(responseText);
@@ -172,7 +174,6 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
             }
-
         }
     }
 
