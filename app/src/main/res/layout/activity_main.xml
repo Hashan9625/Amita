@@ -30,7 +30,8 @@
         android:layout_below="@id/response"
         android:text="next emotion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/emotionText"
@@ -44,12 +45,11 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
-        android:visibility="invisible"
         android:id="@+id/detectImage"
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:src="@drawable/test"
-        android:layout_below="@+id/response"/>
+        android:layout_below="@+id/response"
+        android:visibility="invisible" />
 
 
     <pl.droidsonroids.gif.GifImageView
@@ -59,6 +59,15 @@
         android:layout_below="@id/detectImage"
         android:layout_above="@id/ask"
         android:src="@drawable/normal"/>
+
+    <Button
+        android:id="@+id/emotionDetect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ask"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:text="emotion Detect" />
 
     <Button
         android:id="@+id/ask"

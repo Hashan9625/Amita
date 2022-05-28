@@ -84,6 +84,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
 
         findViewById(R.id.ask).setOnClickListener(this);
         findViewById(R.id.emotion).setOnClickListener(this);
+        findViewById(R.id.emotionDetect).setOnClickListener(this);
 //        cameraProviderFu
     }
 
@@ -93,7 +94,9 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.ask:
                     promptSpeechInput();
-//                    emotionDetection();
+                break;
+            case R.id.emotionDetect:
+                    emotionDetection();
                 break;
             case R.id.emotion:
                 if(emotion == 4)
@@ -114,7 +117,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         emotionDetectionPy =  py.getModule("emotionDetection");
         PyObject main = emotionDetectionPy.callAttr("main",imageString);
         String responseText = main.toString();
-        Log.d(ContentValues.TAG,"emotionDetection--------------------------------------------"+responseText);
+        Log.d(ContentValues.TAG,"emotionDetection-------------------------------------------- "+responseText);
         interactor.emotionDetection();
     }
 
@@ -162,20 +165,33 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
 
                     PyObject emotionOutput = emotionDetectionInVoice.callAttr("main",que);
                     String emotionOutputString = emotionOutput.toString();
-                    Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- ashan output--- > "+emotionOutputString);
-
+                    Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- voice emotion output--- > "+emotionOutputString);
+                    emotionText.setText(emotionOutputString);
 //                    PyObject verbalResponse = ai.callAttr("main",que,emotion);
-                    PyObject verbalResponse = aiWhatsAppChat.callAttr("main",que,"");
+                    PyObject verbalResponse = aiWhatsAppChat.callAttr("main",que,emotionOutputString);
                     String responseText = verbalResponse.toString();
                     response.setText(responseText);
                     display(responseText);
 
-                    textToSpeech.speak(responseText,TextToSpeech.QUEUE_FLUSH,null);
+                    textToSpeech(responseText);
+
                 }
                 break;
             }
         }
     }
+
+    public void textToSpeech(String responseText) {
+        class Class_textToSpeech implements Runnable {
+            @Override
+            public void run() {
+                textToSpeech.speak(responseText,TextToSpeech.QUEUE_FLUSH,null);
+            }
+        }
+        Class_textToSpeech class_textToSpeech = new Class_textToSpeech();
+        new Thread(class_textToSpeech).start();
+    }
+
 
     private void display(String responseText){
 
