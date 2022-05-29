@@ -61,7 +61,6 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         detectImage = findViewById(R.id.detectImage);
         emotionText = findViewById(R.id.emotionText);
 
-        emotionText.setText(emotionArray[emotion]);
 
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
@@ -103,8 +102,6 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                     emotion = 0;
                 else
                     emotion++;
-
-                emotionText.setText(emotionArray[emotion]);
                 break;
         }
     }
@@ -167,13 +164,13 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                     String emotionOutputString = emotionOutput.toString();
                     Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- voice emotion output--- > "+emotionOutputString);
                     emotionText.setText(emotionOutputString);
-//                    PyObject verbalResponse = ai.callAttr("main",que,emotion);
-                    PyObject verbalResponse = aiWhatsAppChat.callAttr("main",que,emotionOutputString);
+                    PyObject verbalResponse = ai.callAttr("main",que,emotionOutputString);
+//                    PyObject verbalResponse = aiWhatsAppChat.callAttr("main",que,emotionOutputString);
                     String responseText = verbalResponse.toString();
-                    response.setText(responseText);
-                    display(responseText);
 
-                    textToSpeech(responseText);
+                    response.setText(responseText.split("/")[0]);
+//                    display(responseText);
+                    textToSpeech(responseText.split("/")[1]);
 
                 }
                 break;

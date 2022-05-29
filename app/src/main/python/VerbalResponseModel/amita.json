@@ -1,667 +1,942 @@
 {
-   "intents":[
-      {
-         "tag":"01",
-         "patterns":[
-            "Hi there",
-            "How are you",
-            "Is anyone there?",
-            "Hey",
-            "Hola",
-            "Hello",
-            "Good day"
-         ],
-         "responses":[
+    "intents": [{
+            "tag": "01",
+            "patterns": [
+                "Hi there",
+                "How are you",
+                "Is anyone there?",
+                "Hey",
+                "Hola",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
 
-	         "Hi there, how can I help you?",
-            " Good to see you again",
-            " Hello, thanks for asking",
-            "Hi my dear I am here to help you?"
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"02",
-         "patterns":[
-            "Bye",
-            "See you later",
-            "Goodbye",
-            "Nice chatting to you, bye",
-            "Till next time"
-         ],
-         "responses":[
-            
-	        "Bye! Come back again soon.",
-	        "Have a nice day!",
-            "See you",
-            "Bye! Take care my dear."
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"03",
-         "patterns":[
-            "Thanks",
-            "Thank you",
-            "That's helpful",
-            "Awesome, thanks",
-            "Thanks for helping me"
-         ],
-         "responses":[
-            "Happy to help!",
-            "Any time!",
-            "My pleasure",
-	        "Anything for you"
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"04",
-         "patterns":[
-            "",
-            "what a Nonsense",
-            "for some indiscernible rationality",
-            "i excoriate such cowardice dissembles",
-            "such diminution will result in abbreviating the very position of our motherland and begrime my bloomers gifted my bedding wife",
-            "few rambunctious motals vehemently assaulted me wich discreadited my behemoth charisma"
-         ],
-         "responses":[
-            "Sorry, can't understand you",
-            "Please give me more info",
-            "Not sure I understand",
-	        "sorry dear can’t understand you give me more info"
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"05",
-         "patterns":[
-            "How you could help me?",
-            "What you can do?",
-            "What help you provide?",
-            "How you can be helpful?",
-            "What support is offered"
-         ],
-         "responses":[
-            "I am a virtual friend of Amita and I am sensitive", 
-	        "I am Amita and I am always be your virtual friend",
-            "I built for my member's final year project at Rajarata University",
-	        "I am Amita and I always be with your to share your anything and be your side"
+                "Hi there, how can I help you?",
+                " Good to see you again",
+                " Hello, thanks for asking",
+                "Hi my dear I am here to help you?"
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "02",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Nice chatting to you, bye",
+                "Till next time"
+            ],
+            "responses": [
+
+                "Bye! Come back again soon.",
+                "Have a nice day!",
+                "See you",
+                "Bye! Take care my dear."
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "03",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Awesome, thanks",
+                "Thanks for helping me"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure",
+                "Anything for you"
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "04",
+            "patterns": [
+
+            ],
+            "responses": [
+                "Sorry, can't understand you",
+                "Please give me more info",
+                "Not sure I understand",
+                "sorry dear can’t understand you give me more info"
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "05",
+            "patterns": [
+                "How you could help me?",
+                "What you can do?",
+                "What help you provide?",
+                "How you can be helpful?",
+                "what is your name?",
+                "what can i do with you?",
+                "who are you?",
+                "tell me about you",
+                "why i should use you?",
+                "what are the benefits of useing this app",
+                "What support is offered"
+            ],
+            "responses": [
+                "I am a virtual friend of Amita and I am sensitive",
+                "I am Amita and I am always be your virtual friend",
+                "I built for my member's final year project at Rajarata University i am Amita and I am sensitive",
+                "I am Amita and I always be with your to share your anything and be your side"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "06",
+            "patterns": [
+                "Which is the best programming language?",
+                "Can you tell me the best language ever?",
+                "What language can I start for programming",
+                "Is Python language an awesome language?",
+                "I am a beginner and I need to learn a new language"
+            ],
+            "responses": [
+                "Without a doubt, Python is the most BEAUTIFUL language ever! You can start learning it anytime",
+                "I am a fan of Python. It's my favorite ever. If you don't believe me, try it yourself you will understand easy",
+                "Python is the beautiful language",
+                "My dear python is the beautiful language don’t worry you can understand it just try yourself anytime"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "07",
+            "patterns": [
+                "tell me a joke",
+                "can you tell me a joke",
+                "make some fun",
+                "make me laugh and do some funny joke",
+                "tell me a joke"
+            ],
+            "responses": [
+                "Hey you are the most beautiful being in the world. Take a mouthful smile",
+                "dude do you know today is not your funeral day smile man.",
+                "hey it is ok to be laugh.",
+                "Hey buddy do you know your face is ugly when you not smile make a hundred dollar smile buddy ."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "08",
+            "patterns": [
+                "Whole day was much stressed",
+                "so much stressed",
+                "Stuck with work",
+                "i am enough of with this exams",
+                "These days I am in strike schedule",
+                "Struggled with exams",
+                "it was bad",
+                "My exam was very bad",
+                "My exam was sucked"
+            ],
+            "responses": [
+                "Be relax dear",
+                "Relax buddy. Take a deep breath and engaged with mind relaxing activity",
+                "Be relax and let’s do so mind relaxing activity.",
+                "Don’t worry. First of all calm and then let’s try to start in fresh mind"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "09",
+            "patterns": [
+                "Even though I have a degree I cannot find a good job here. I hate this system",
+                "I cannot find a good job here. I hate this system",
+                "I have a degree and i can’t find a good job here. ",
+                "I spent more than half of my life to education and now I don’t have a job in this country. Political involved happened for the government jobs here. Even though privet sector offer jobs they asked working experience. How I do it as a freshly graduate. People get job for their connection. I am sick of this system",
+                "I am searching a job but couldn’t find. Needs a job BADLY",
+                "Hope I get a job because we need an apartment. I'm drunk because I can’t bear this stress"
+            ],
+            "responses": [
+                "Let’s try again",
+                "Don’t worry everyone have bad time we will be fine. Let’s Find more option for the job and apply and don’t forget to find why they do not offer job and what your weaknesses are.",
+                "Let’s try more buddy.",
+                "Be calm and let’s keep trying. You know if there is a will there is a way."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "10",
+            "patterns": [
+                "I feel I am losing the interest to my job",
+                "It’s been a several time I am here and doing same thing, I am bored",
+                "I feel like I need a change. Like I need to take a step forward of my currier",
+                "I want to change of my job role"
+            ],
+            "responses": [
+                "Dude if you feel so you need to refresh. Let’s try to think positively then we will be fine",
+                "Do not worry we can find something that you really interesting",
+                "Let's find something that you really interesting to do",
+                "Do not be afraid to do what you really want to do"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "11",
+            "patterns": [
+                "Took a shift tomorrow. I don't really feel like working right now",
+                "I want go home early but boss don’t let me go. I am stuck with work",
+                "I am stuck with work",
+                "I need a break ",
+                "God I have work 24/7. Damn I need a break",
+                "Too much embracing today at my office",
+                "workloaa is too much",
+                "time is not enough can’t finish this work",
+                "Today workload is too much can’t manage them",
+                "So much work within little time. God, how can I manage these things? I am not a robot"
+            ],
+            "responses": [
+                "Let's try to manage these things buddy",
+                "Don't worry. Discuss the situation  with that someone close to you.Try to get to a leave  if you can",
+                "let it go. Try to get a leave if you can",
+                "Let's be calm. Try to get a leave you if you can. Discuss this matter with someone really close to you. I am really sure you can manage this."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "12",
+            "patterns": [
+                "My friend was met with an accident. I felt so sorry about him and I am scared of him",
+                "Doctor said that my doggy cannot recover. His condition is bad. I don’t want to lose him",
+                "I was thrown the van yesterdays and I need to be taken ER",
+
+                "Bitten to blood by my cat/dog, on my way for a rabies bacteria"
+            ],
+            "responses": [
+                "That will be fine. take care well",
+                "That will be fine. I think channelling a specialist is best. And you also can wish recovery soon according to your religion",
+                "That will be fine buddy. I think channelling a specialist is best",
+                "Let's calm down.That will be fine I think channelling specialist is best. And you also can wish recovery soon according to your religion"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "13",
+            "patterns": [
+                "I'm showing my age",
+                "My girlfriend/boyfriend looks younger than me",
+                "I feel I look much older than my boyfriend",
+                " I don't want to be old",
+                "I am just starting to feel really panicky and anxious that something bad has happened because it seems like it’s been ages"
+            ],
+            "responses": [
+                "Come on buddy. You are not that much  older. Still look like young",
+                "dude we all are getting age that’s the nature we can’t change it just you have to accept it and enjoy",
+                "We all are getting old That is nature. So don't worry just enjoy your life",
+                "come on buddy you know age is not the matter what you think about yourself  and confidence is the matter which drive you to the success or failed"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "14",
+            "patterns": [
+                "Even though we played and try our best until the last we lost",
+                "I failed from my exam",
+                "I rejected from my interview",
+                "I was fail to cover my target"
+            ],
+            "responses": [
+                "Don't give up dude. We must try again",
+                "Don't worry buddy. It does not matter if you finish successfully or not, it does matter whether you did your best or not. You can be satisfied if you do your best. If it is not then it is more difficult training. Do your best next time",
+                "Try you can fly.Do your best in next time",
+                "Be calm  Don't worry everyone's life sometimes fails. Next time you will do your best and succeed.Try you can fly"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "15",
+            "patterns": [
+                "My crush/love is not interested on me",
+                "she/he not love me",
+                "i cant express my feeling to the person i love",
+                "i love him/her but i cant say that",
+                "I love him, but he is not feeling the same way, only I am loving",
+                "I felt him/her not loving as they was before",
+                "It's pissing me off and not letting me follow my crush"
+            ],
+            "responses": [
+                "Come on it's OK . let's find someone else who really love you",
+                " It is heartbreaking when the person you like doesn’t feel the same way.Unfortunately, you don’t get to decide who likes you and who doesn’t. But you can decide how you will deal with it when this kind of disappointment occurs. By adjusting your perspective, accepting the outcome, and taking steps forward, you can deal with this negative experience in a positive way",
+                "It's heartbreaking when the person you love does not feel the same way. You cannot change the way they treat you. What you can change is how they treat them",
+                "Calm down. It hurts when he or she do not feel the way you  feels. But this is something that everyone faces at some point in their life. Unfortunately. So be brave. And accept it."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "16",
+            "patterns": [
+                "I miss my love",
+                "I still missing my husband.I really want him home",
+                "My husband was heated on me",
+                "I wish she knew what she puts me through. She stole my heart, never gave it back. And occasionally she likes to be like look what I have",
+                "I am not going to sleep peaceful wanted to hear him say Good Night but that didn't happen"
+            ],
+            "responses": [
+                "Just try to forget  it. Do some mindfulness activity to make your mind",
+                " Try to forget him or she. By adjusting your perspective, accepting the outcome, and taking steps forward, you can deal with this negative experience in a positive way",
+                "Sometimes we have to forget the past. Make up your mind to move on. Think positive",
+                "calm down. It hurts when you miss someone you really love. But if they no longer care about you, it is better to try to forget him / her"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "17",
+            "patterns": [
+                "I can’t stay with new roomies. They are selfish and not friendly. It is irritating to be with people who we don’t want to be",
+                "I am new to her. I do not have many friend here. I feel alone",
+                "I am stuck with strangers feel like hell",
+                "I feel lonely and empty",
+                "I feel alone",
+                "I don’t have someone to talk",
+                "I don’t want be alone and I don’t know what to do"
+            ],
+            "responses": [
+                "Try to find another friend around you",
+                "Call someone who is really close to you. And try to find new friends around you so you do not feel lonely",
+                "Being alone is not a good thing. So try to be friendly with everyone even if everyone is not friendly. Be positive.",
+                "Calm down. Try to call someone who is really close to you. try to do  one of your hobbies To get rid of loneliness"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "18",
+            "patterns": [
+                "I have forgot to wish my best friend and I think he is upset",
+                "I completely forgot our anniversary. She is upset",
+                "I have forgot to wish",
+                "I completely forgot my wife birthday. She is upset",
+                "I completely forgot to bring what I was promise to her. She is upset"
+            ],
+            "responses": [
+                "That's not a good thing. Ask him / her to forgive",
+                "That's not a good thing. Ask him or her to forgive. Explain what really happened. Express your love. He /she will understand",
+                "That's not a good thing. Ask him or her to forgive. Express your love. . Tell him to go on a date. Explain what happened and why you forgot it. She / he will understand",
+                "Although it's not a good thing. He /she will understand why it happens. Tell the truth. Express your love. That would all be well."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "19",
+            "patterns": [
+                "My dog ran away. I am so worried",
+                "I haven't seen my pet in two whole days! it is missing",
+                "I miss my cat. I do not know where is him and i am so much worried ",
+                "Someone stolen my dog. I am so worried"
+
+            ],
+            "responses": [
+                " Let your friends and the police know. And try to find it in your neighbourhood",
+                "We will find it. Let the police and your friends know. Publish your pet loss poster. And ask for help on social media. Don’t worry, you will definitely find your pet",
+                " lets find it,Publish your losing prt poster. And ask for help on social media",
+                "calm down. We will find it. Inform the police and your friends. Publish your pet lost poster. And ask for help on social media. Don’t worry, you will definitely find your pet"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "20",
+            "patterns": [
+                "I feel everyday like same",
+                "Fed off with this life",
+                "No any change or happy",
+                "I don’t want to be stuck at home. Damn this pandemic situation ruined my whole plans",
+                "I feel like I'm on house arrest"
+            ],
+            "responses": [
+                "Let's do a one of your hobby",
+                "Don't worry. We can still be happy.lets do  Some things you really find interesting.",
+                "Do something that you really interesting",
+                "Do not worry, calm down, you can do something very interesting like your hobby"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "21",
+            "patterns": [
+                "Went to the beach and it started raining. My all day was ruined",
+                "I just cancelled my trip due to this bloody weather",
+                "Not super keen on the drive home through the rain. Additional concentration required that i don't really won’t deal with",
+                "This bloody rain ruined my whole plan",
+                "I had to cancel my all work due to this bad weather",
+                "We want rain to our crops but it seems rain will not happened. If so we have to bear a huge lost"
+            ],
+            "responses": [
+                "I'm sure you can find something worth doing in this bad weather",
+                "Don't worry.Let's find out some weather forecast. Maybe weather  will be better in soon",
+                "I think we can find something valuable to do in in this bad  weather.",
+                "do not be scared. We can find out from the weather forecast. Maybe the bad weather will get better soon."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "22",
+            "patterns": [
+                "My phone was broken. I can’t do anything without it",
+                "My computer broken and my laptop so I had to use the phone",
+                "Damd this bloody headphone is not working",
+                "My god my tab is broken ",
+                "My mobile phone refuses to charge!!  Either the battery is broken or the charger"
+            ],
+            "responses": [
+                "Maybe it's a good thing. You can spend valuable time with nature and the present mind",
+                "Don't worry Contact a mechanic to have your device repaired",
+                "Let's see if it can be repaired",
+                "Do not be scared. Sometimes it can be repaired and used"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "23",
+            "patterns": [
+                " I want to buy this but unfortunately i do not have enough funds",
+                "I need to a buy a new phone but I don’t have money",
+                "I need to a buy a new phone",
+                "Sucks not being able to take days off of work or have the money to take the trip so sad",
+                "I am struggling with money these days",
+                "I don’t have enough money",
+                "I really need money and I don’t know how"
+            ],
+            "responses": [
+                "But you can still enjoy your life",
+                "Don't worry you can find a way to find some money  and  fulfil your want.",
+                "Let's make some money. You can do something like a part-time job to save money.",
+                "Do not worry, calm down, we can find a way to solve this financial problem. You can do a part-time job to save money."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "24",
+            "patterns": [
+                "I felt I need to die. I don’t want to live like this anymore. I can’t bear this suffering",
+                "Life is suck it's better to die.",
+                "Life is suck .",
+                "I need to die",
+                "There is no reason to live anymore. This whole life is meaningless",
+                "I feel like I have no courage to face these things anymore. I am tired enough of all. I am break in my inner soul"
+
+            ],
+            "responses": [
+                "Please call to someone you really close to you",
+                "It's okay to feel that way. You can beat this, don't worry. If you need to, you can contact several advisors to discuss the matter.If you have suicidal thoughts, you can contact the National Institute of Mental Health at 1926 on this hotline. I'm sure they can help you",
+                "we can find out the way to to beat this.It would be better if you can  contact someone really close to discuss this matter",
+                "Be brave we can find a way to defeat this.If you have suicidal thoughts, you can contact the National Institute of Mental Health at 1926 on this hotline. I'm sure they can help you."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "25",
+            "patterns": [
+                "my teeth and head hurts",
+                "feels sick to my stomach and I don’t know why",
+                "My stomach feels like it's touching the ground. I’m SO full",
+                "My head hurts so bad I could scream",
+                "I have a pain in my body",
+                "I'm feeling this pressure in my head that always kicks in just before a nasty headache. I'm not looking forward to this",
+                "Last day at work...Sick to the bone",
+                "Sprained my ankle like really badly and tore some stuffs. It hurts! and it’s my birthday weekend",
+                "I got a giant splinter stuck up underneath my finger nail today at Muppets...it hurt",
+                "I am with a nasty cough i can’t be sick i have a huge weekend ahead of me",
+                "I just go up and I am  so tried  and my armatures is broken somewhere and now I’m in even more pain"
+            ],
+            "responses": [
+                "A simple painkiller such as paracetamol can be used for temporary relief. You should seek medical advice the first time you can..If you have a medical emergency you can call the 1990 hotline",
+                "If it's not a big deal, we can take painkillers to get rid of it temporarily. If you have a medical emergency you can call the 1990 hotline",
+                "We try a simple painkiller such as paracetamol. Until we get medical treatment.If you have a medical emergency you can call the 1990 hotline",
+                "do not be scared. You can contact the emergency medical team via the 1990 hotline"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "26",
+            "patterns": [
+                "Going to sleep. Gonne fall asleep playing apps again. Tomorrow is going to suck",
+                "So sleepy again and it's not even that late. I fail once again",
+                "I haven’t sleep enough",
+                "I'm going to bed... I just don't feel right anymore"
+            ],
+            "responses": [
+                "Let's take a break And sleep well",
+                "You should sleep if you can get a break it will be better",
+                "Let's try to get a break and sleep",
+                "Don't afraid. Let's try to get a break and sleep"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "27",
+            "patterns": [
+                " Can't sleep.The one day i have to sleep in and i have to get up and go shopping with mom",
+                "I can't sleep...I keep over thinking",
+                "Too bad! I hope it gets better. I’m having a sleep issues lately too",
+                "I should be sleep, but I’m not! Thinking about an old friend who I want. But they married and busy now. Damn, they wants me too"
+            ],
+            "responses": [
+                " Let's do some mindfulness activit",
+                "Don't worry let's do some mindfulness activity.You can forget everything that you are worried about",
+                "Let's do some  mindfulness activity to get sleep",
+                "Calm down.Let's do some  mindfulness activity"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "28",
+            "patterns": [
+                "My weight has increased. I really hate this",
+                "I almost turn out to be chubby",
+                "I look fat",
+                "I look ugly.",
+                "my weight is increased",
+                "my weight is gain",
+                "I am chubby",
+                "I love to have pizza but I am not allowed due to my weight gain",
+                "It’s really make me so stress as I can’t enjoy the food I want due to this bloody fat and weight"
+            ],
+            "responses": [
+                "It doesn't matter. You are still beautiful",
+                "It doesn't matter. You are still beautiful. But if you want to lose weight, you can do some exercise",
+                "it's OK. You are always as beautiful as you are",
+                "Calm down. You are still beautiful. But if you really want to lose weight, you can exercise and control your diet"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "29",
+            "patterns": [
+                "I lost my friend",
+                "I miss my parent. I really want to spend time with them again",
+                "I really missing my Husband/ wife. After I lost him l am so alone",
+                "After my Child was gone I felt my whole world is empty",
+                "I just saw pics from this past. I am sad because Grandma/ Grandpa was there",
+                "At my Sleepy time really missing my grandmother right now. Love her so much",
+                "I miss mom. I really want to be her in my sight, I really miss the time spent with her"
+            ],
+            "responses": [
+                "You can pray for them.",
+                "Do not worry, we pray for them For their own good. They may be looking at you. You have to do your best to make them proud",
+                "Let us pray for them for their good",
+                "Let us pray for them for their good.They may be looking at you. You have to do your best to make them proud ."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "30",
+            "patterns": [
+                "I was late to work so whole day was bad because all work went wrong. Finally I got scold",
+                "No transportation to reach the office I am already late",
+                "all work went wrong.",
+                "Finally I got scold.",
+                "day  is cash.",
+                "I was late to wake up. The whole day  is cash.",
+                "Boss was shouted on me because I was little bit late"
+            ],
+            "responses": [
+                "Tomorrow you can come little bit earlier",
+                "Do not be sad. We can come a little early tomorrow. You have to do your best and prove that you are the best",
+                "Next time we have to come a little earlier.",
+                "It doesn't matter. Calm down. Next time you should arrive a little earlier. Do your best to prove that you are the best"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "31",
+            "patterns": [
+                " Oh my god I passed the exam. Now I can go for my dreams. ",
+                "I won the competition. My god I can’t believe this",
+                "I am really in a good mood. Exam was totally find. All my guesses were there dude",
+                "Finally results out my god my degree is complete now. I am so much happy",
+                "God today is the last day of exams. Finally we end it. Definitely  I am going to celebrate",
+                "OMG I am selected to university. I just got the message. I can’t believe"
+            ],
+            "responses": [
+                "Let's celebrate this. You deserve that. because you work hard",
+                "Come on, that's a good thing. Why are you upset.You should celebrate this.",
+                "We should celebrate this",
+                "Why are you panicking. That's a good thing. Come on, we need to celebrate this"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "32",
+            "patterns": [
+                " We are going to marry. I am excited about my dreamy wedding.",
+                "Hey today I met a cute girl and had a good conversation. It was cool.",
+                "Hey guess what tomorrow we are going our first hang out. So a trip sounds like fun",
+                "Hey you know what my crush accept my friend request. My god I am too excited"
+            ],
+            "responses": [
+                "Wow that's a good thing. ",
+                "Come on, that's a good thing. Do not bother. Everything is going wel.",
+                "Wow that's good thing.Best of luck",
+                "Come on, that's a good thing. Be brave."
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "33",
+            "patterns": [
+                "how can i find my career",
+                "i am worried about my future goals",
+                "i dont know what to do after completing my degree",
+                "i cant find a job",
+                "what i have to do after my degree",
+                "i am loosing my hope about my dreams"
+            ],
+            "responses": [
+
+                "we will find a way i think its better to searching the opportunities we have.",
+                "dont worry you know rough sea always make a great captain so we will get in touch with the opportunities we have",
+                "i think its better to find the new opportunities we can find",
+                "come on dude we fill be fine and come up with ne opportunities that we can find."
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "34",
+            "patterns": [
+                " how is the weather today",
+                "what is the weather condition",
+                "tell me about weather forcasting today ",
+                "show me the weather note today"
+            ],
+            "responses": [
+                "ok to find the weather forcast search it from the google ",
+                "you can find it from the google",
+                "search the weather forcast from the google",
+                "ok to find the weather forcast search it from the google"
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "35",
+            "patterns": [
+                "how is the current political situation of the country",
+                "what is the economic situation of the country",
+                "what is happaning in the country these days ",
+                "how is country going these days"
+            ],
+            "responses": [
+                "unfortunately sri lanka is going economic crisis at the movement and it is better to think wisely and make good decisions ",
+                "unfortunately sri lanka is going economic crisis at the movement but if authorities can think wisely and make good decisions it can overcome with long term plan ",
+                "unfortunately sri lanka is going economic crisis at the movement and it is better to think wisely and make good decisions ",
+                "unfortunately sri lanka is going economic crisis at the movement but if authorities can think wisely and make good decisions it can overcome with long term plan  "
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "36",
+            "patterns": [
+                "i want to do shopping",
+                "what is the best place to shopping",
+                "what is the best place to lowest price with quality proucts",
+                "where i can bye quality proucts",
+                "i want to bye new cloths/stuffs where the best market place",
+                "where i can find reasonable price ",
+                "where the lowest price"
+            ],
+            "responses": [
+                "well acoring to social distance situation its better to use online shopping i think daraz is leaing of the market",
+                "i think with daraz you can chooce what you want and cheapest way and easy ",
+                "you can go for whole sale or online shopping.daraz is thending on now a days ",
+                "i think with daraz you can chooce what you want and cheapest way and easy  "
+
+            ],
+            "context": [
+                ""
+            ]
+        }, {
+            "tag": "37",
+            "patterns": [
+                "what are the technologies use to built the app",
+                "what componant used to you",
+                "what are the concept use here",
+                "what is your technical background",
+                "tell us about your technologies"
+            ],
+            "responses": [
+                "well i am Amita and basically AI,face detection technology,natural language processing and animation technologies use in my application",
+                "well i am Amita and basically AI,face detection technology,natural language processing and animation technologies use in my application",
+                "well i am Amita and basically AI,face detection technology,natural language processing and animation technologies use in my application ",
+                "well i am Amita and basically AI,face detection technology,natural language processing and animation technologies use in my application"
+            ],
+            "context": [
+                ""
+            ]
+        },
 
 
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"06",
-         "patterns":[
-            "Which is the best programming language?",
-            "Can you tell me the best language ever?",
-            "What language can I start for programming",
-            "Is Python language an awesome language?",
-            "I am a beginner and I need to learn a new language"
-         ],
-         "responses":[
-            "Without a doubt, Python is the most BEAUTIFUL language ever! You can start learning it anytime",
-            "I am a fan of Python. It's my favorite ever. If you don't believe me, try it yourself you will understand easy", 
-	        "Python is the beautiful language",
-	        "My dear python is the beautiful language don’t worry you can understand it just try yourself anytime"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"07",
-         "patterns":[
-            "tell me a joke",
-            "can you tell me a joke",
-            "make some fun",
-            "make me laugh and do some funny joke",
-            "tell me a joke"
-         ],
-         "responses":[
-            "Hey you are the most beautiful being in the world. Take a mouthful smile",
-	        "dude do you know today is not your funeral day smile man.",
-	        "hey it is ok to be laugh.",
-	        "Hey buddy do you know your face is ugly when you not smile make a hundred dollar smile buddy ."
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"08",
-         "patterns":[
-            "Whole day was much stressed",
-            "Stuck with work",
-            "These days I am in strike schedule",
-            "Struggled with exams",
-            "My exam was very bad",
-            "My exam was sucked"
-         ],
-         "responses":[
-          "Be relax dear",
-	        "Relax buddy. Take a deep breath and engaged with mind relaxing activity",
-	        "Be relax and let’s do so mind relaxing activity.",
-	        "Don’t worry. First of all calm and then let’s try to start in fresh mind"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"09",
-         "patterns":[
-            "Even though I have a degree I cannot find a good job here. I hate this system",
-            "I spent more than half of my life to education and now I don’t have a job in this country. Political involved happened for the government jobs here. Even though privet sector offer jobs they asked working experience. How I do it as a freshly graduate. People get job for their connection. I am sick of this system",
-            "I am searching a job but couldn’t find. Needs a job BADLY",
-            "Hope I get a job because we need an apartment. I'm drunk because I can’t bear this stress"
-         ],
-         "responses":[
-            "Let’s try again",
-	        "Don’t worry everyone have bad time we will be fine. Let’s Find more option for the job and apply and don’t forget to find why they do not offer job and what your weaknesses are.",
-	        "Let’s try more buddy.",
-	        "Be calm and let’s keep trying. You know if there is a will there is a way."
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"10",
-         "patterns":[
-            "I feel I am losing the interest to my job",
-            "It’s been a several time I am here and doing same thing, I am bored",
-            "I feel like I need a change. Like I need to take a step forward of my currier",
-            "I want to change of my job role"
-         ],
-         "responses":[
-            "Dude if you feel so you need to refresh. Let’s try to think positively then we will be fine",
-	        "Do not worry we can find something that you really interesting",
-	        "Let's find something that you really interesting to do",
-	        "Do not be afraid to do what you really want to do"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"11",
-         "patterns":[
-            "Took a shift tomorrow. I don't really feel like working right now",
-            "I want go home early but boss don’t let me go. I am stuck with work",
-            "God I have work 24/7. Damn I need a break",
-            "Too much embracing today at my office",
-            "Today workload is too much can’t manage them",
-            "So much work within little time. God, how can I manage these things? I am not a robot"
-         ],
-         "responses":[
-            "Let's try to manage these things buddy",
-	        "Don't worry. Discuss the situation  with that someone close to you.Try to get to a leave  if you can",
-	        "let it go. Try to get a leave if you can",
-	        "Let's be calm. Try to get a leave you if you can. Discuss this matter with someone really close to you. I am really sure you can manage this."
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"12",
-         "patterns":[
-            "My friend was met with an accident. I felt so sorry about him and I am scared of him",
-            "Doctor said that my doggy cannot recover. His condition is bad. I don’t want to lose him",
-            "I was thrown the van yesterdays and I need to be taken ER",
-            "Bitten to blood by my cat/dog, on my way for a rabies bacteria"
-         ],
-         "responses":[
-          "That will be fine. take care well",
-	        "That will be fine. I think channelling a specialist is best. And you also can wish recovery soon according to your religion",
-	        "That will be fine buddy. I think channelling a specialist is best",
-	        "Let's calm down.That will be fine I think channelling specialist is best. And you also can wish recovery soon according to your religion"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"13",
-         "patterns":[
-            "I'm showing my age",
-            "My girlfriend/boyfriend looks younger than me",
-            "I feel I look much older than my boyfriend",
-            " I don't want to be old",
-            "I am just starting to feel really panicky and anxious that something bad has happened because it seems like it’s been ages"
-         ],
-         "responses":[
-            "Come on budddy. You are not that much  older. Still look like young",
-	        "dude we all are getting age that’s the nature we can’t change it just you have to accept it and enjoy",
-	        "We all are getting old That is nature. So don't worry just enjoy your life",
-	        "come on buddy you know age is not the matter what you think about yourself  and confidence is the matter which drive you to the success or failed"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"14",
-         "patterns":[
-            "Even though we played and try our best until the last we lost",
-            "I failed from my exam",
-            "I rejected from my interview",
-            "I was fail to cover my target"
-         ],
-         "responses":[
-            "Don't give up dude. We must try again",
-	        "Don't worry buddy. It does not matter if you finish successfully or not, it does matter whether you did your best or not. You can be satisfied if you do your best. If it is not then it is more difficult training. Do your best next time",
-	        "Try you can fly.Do your best in next time",
-	        "Be calm  Don't worry everyone's life sometimes fails. Next time you will do your best and succeed.Try you can fly"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"15",
-         "patterns":[
-            "My crush is not interested on me",
-            "I love him, but he is not feeling the same way, only I am loving",
-            "I felt him/her not loving as they was before",
-            "It's pissing me off and not letting me follow my crush"
-         ],
-         "responses":[
-            "Come on it's OK . let's find someone else who really love you",
-	        " It is heartbreaking when the person you like doesn’t feel the same way.Unfortunately, you don’t get to decide who likes you and who doesn’t. But you can decide how you will deal with it when this kind of disappointment occurs. By adjusting your perspective, accepting the outcome, and taking steps forward, you can deal with this negative experience in a positive way",
-	        "It's heartbreaking when the person you love does not feel the same way. You cannot change the way they treat you. What you can change is how they treat them",
-	        "Calm down. It hurts when he or she do not feel the way you  feels. But this is something that everyone faces at some point in their life. Unfortunately. So be brave. And accept it."
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"16",
-         "patterns":[
-            "I miss my love",
-            "i still missing my husband. I really want him home",
-            "My husband/wife was heated on me",
-            "I wish she/he knew what she puts me through. She/he stole my heart, never gave it back. And occasionally she/he likes to be like look what I have",
-            "I am not going to sleep peaceful wanted to hear him say Good Night but that didn't happen"
-         ],
-         "responses":[
-          "Just try to forget  it. Do some mindfulness activity to make your mind",
-	        " Try to forget him or she. By adjusting your perspective, accepting the outcome, and taking steps forward, you can deal with this negative experience in a positive way",
-	        "Sometimes we have to forget the past. Make up your mind to move on. Think positive",
-	        "calm down. It hurts when you miss someone you really love. But if they no longer care about you, it is better to try to forget him / her"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
-      {
-         "tag":"17",
-         "patterns":[
-            "I can’t stay with new roomies. They are selfish and not friendly. It is irritating to be with people who we don’t want to be",
-            "I am new to her. I do not have many friend here. I feel alone",
-            "I am stuck with strangers feel like hell",
-            "I feel lonely and empty",
-            "I don’t want be alone and I don’t know what to do"
-         ],
-         "responses":[
-            "Try to find another friend around you",
-	        "Call someone who is really close to you. And try to find new friends around you so you do not feel lonely",
-	        "Being alone is not a good thing. So try to be friendly with everyone even if everyone is not friendly. Be positive.",
-	        "Calm down. Try to call someone who is really close to you. try to do  one of your hobbies To get rid of loneliness"
-
-         ],
-         "context":[
-            ""
-         ]
-      }
-,{
-         "tag":"18",
-         "patterns":[
-            "I have forgot to wish my best friend and I think he is upset",
-            "I completely forgot our anniversary. She is upset",
-            "I completely forgot my wife birthday. She is upset",
-            "I completely forgot to bring what I was promise to her. She is upset"  
-         ],
-         "responses":[
-            "That's not a good thing. Ask him / her to forgive",
-	        "That's not a good thing. Ask him or her to forgive. Explain what really happened. Express your love. He /she will understand",
-	        "That's not a good thing. Ask him or her to forgive. Express your love. . Tell him to go on a date. Explain what happened and why you forgot it. She / he will understand",
-	        "Although it's not a good thing. He /she will understand why it happens. Tell the truth. Express your love. That would all be well."
-
-         ],
-         "context":[
-            ""
-         ]
-      },
 {
-         "tag":"19",
-         "patterns":[
-            "My dog ran away. I am so worried",
-            "I haven't seen my pet in two whole days! He is missing",
-			"I miss my cat. I do not know where is him and i am so much worried ",                        
-			"Someone stolen my dog. I am so worried"
+    "tag": "38",
+    "patterns": [
+        "I need to finish the article as soon as possible but I don’t have creative thought and it need additional time"
 
-         ],
-         "responses":[
-            " Let your friends and the police know. And try to find it in your neighbourhood",
-	        "We will find it. Let the police and your friends know. Publish your pet loss poster. And ask for help on social media. Don’t worry, you will definitely find your pet",
-	        " lets find it,Publish your losing prt poster. And ask for help on social media",
-	        "calm down. We will find it. Inform the police and your friends. Publish your pet lost poster. And ask for help on social media. Don’t worry, you will definitely find your pet"
-
-         ],
-         "context":[
-            ""
-         ]
-      },
+    ],
+    "responses": [
+        " you can do it lets find some article related to it",
+        "come on man you can do it, refer some related article you will get an idea",
+        "buddy ",
+        "lets refer some related article you will get an idea"
+    ],
+    "context": [
+        ""
+    ]
+}, 
 {
-         "tag":"20",
-         "patterns":[
-            "I feel everyday like same",
-            "Fed off with this life",
-            "No any change or happy",
-            "I don’t want to be stuck at home. Damn this pandemic situation ruined my whole plans",
-            "I feel like I'm on house arrest"
-         ],
-         "responses":[
-             "Let's do a one of your hobby",
-	        "Don't worry. We can still be happy.lets do  Some things you really find interesting.",
-	        "Do something that you really interesting",
-	        "Do not worry, calm down, you can do something very interesting like your hobby"
+    "tag": "39",
+    "patterns": [
 
-         ],
-         "context":[
+        "I can't believe that my new song was stolen I'm so disappointed.money was stolen.jewelry stolen.my new script was stolen "
+
+    ],
+    "responses": [
+        "lets go for legal help",
+        "don’t worry we should go for legal action",
+        "we should go for legalhelp ",
+        "we should go for legal action"
+    ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    }, 
 {
-         "tag":"21",
-         "patterns":[
-            "Went to the beach and it started raining. My all day was ruined",
-            "I just cancelled my trip due to this bloody weather",
-            "Not super keen on the drive home through the rain. Additional concentration required that i don't really won’t deal with",
-"This bloody rain ruined my whole plan",
-            "I had to cancel my all work due to this bad weather",
-            "We want rain to our crops but it seems rain will not happened. If so we have to bear a huge lost"
-         ],
-         "responses":[
-            "I'm sure you can find something worth doing in this bad weather",
-	        "Don't worry.Let's find out some weather forecast. Maybe weather  will be better in soon",
-	        "I think we can find something valuable to do in in this bad  weather.",
-	        "do not be scared. We can find out from the weather forecast. Maybe the bad weather will get better soon."
+        "tag": "40",
+        "patterns": [
+            "I had fight with my bf/gf/boyfriend/girlfriend/friend/mom/dad/bother/sister totally my mood is off"
 
-         ],
-         "context":[
+        ],
+        "responses": [
+            "lets take break and you should forget it and need to do something can mood change",
+            "come on man just give a time I think now you should forget it and need to do something to mood change",
+            "lets forget it and do something to mood change",
+            "buddy just give a time I think now you should forget it and need to do something can mood change"
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    },
 {
-         "tag":"22",
-         "patterns":[
-            "My phone was broken. I can’t do anything without it",
-            "My computer broken and my laptop so I had to use the phone",
-           "Damd this bloody headphone is not working",
-           "My god my tab is broken ",
-            "My mobile phone refuses to charge!!  Either the battery is broken or the charger"
-         ],
-         "responses":[
-            "Maybe it's a good thing. You can spend valuable time with nature and the present mind",
-	        "Don't worry Contact a mechanic to have your device repaired",
-	        "Let's see if it can be repaired",
-	        "Do not be scared. Sometimes it can be repaired and used"
+        "tag": "42",
+        "patterns": [
+            "I feel so sorry about myself. When I saw a people who live happily with their family I feel like I am so unlucky. I really miss my parents. Life without them is suck "
 
-         ],
-         "context":[
+        ],
+        "responses": [
+            "my dear even it is hard we should fight for our victory",
+            " but you know buddy when you learn to fight and survive alone you can do anything. You will become a strong man and you have a nice journey that is unique. Don’t think that your alone find nice people around you they will be your family. Believe me relationships are not only from blood they are from humanity. Spread the love to world and you will return it",
+            "I know it’s hard but we should fight until the victory dear",
+            "my dear I know it’s hard become a strong man and you have a nice journey that is unique"
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    }, 
 {
-         "tag":"23",
-         "patterns":[
-            " I want to buy this but unfortunately i don’t have enough funds",
-            "I need to a buy a new phone but I don’t have money",
-            "Sucks not being able to take days off of work or have the money to take the trip so sad",
-            "I am struggling with money these days",
-            "I really need money and I don’t know how"
-         ],
-         "responses":[
-            "But you can still enjoy your life",
-	        "Don't worry you can find a way to find some money  and  fulfil your want.",
-	        "Let's make some money. You can do something like a part-time job to save money.",
-	        "Do not worry, calm down, we can find a way to solve this financial problem. You can do a part-time job to save money."
+        "tag": "43",
+        "patterns": [
+            "He/she never directly answered my questions I really need a direct answers.Otherwise I can’t go further with this relationship "
 
-         ],
-         "context":[
+        ],
+        "responses": [
+            "relax dear and discuss about the matter directly",
+            "first you need to calm down then you have to talk and tell directly about this matter. I think that is the better than you getting a decision alone",
+            "first relax directly discuss about this matter",
+            "calm down my dear you have to talk and tell  directly about this matter"
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    }, 
 {
-         "tag":"24",
-         "patterns":[
-            "I felt I need to die. I don’t want to live like this anymore. I can’t bear this suffering",
-            "Life is suck it's better to die.",
-            "There is no reason to live anymore. This whole life is meaningless",
-            "I feel like I have no courage to face these things anymore. I am tired enough of all. I am break in my inner soul"
+        "tag": "44",
+        "patterns": [
+            "sometimes i wish things could go back to the way they were the beginning so I can be with people whom I love and I can correct the mistake"
 
-         ],
-         "responses":[
-            "Please call to someone you really close to you",
-	        "It's okay to feel that way. You can beat this, don't worry. If you need to, you can contact several advisors to discuss the matter.If you have suicidal thoughts, you can contact the National Institute of Mental Health at 1926 on this hotline. I'm sure they can help you",
-	        "we can find out the way to to beat this.It would be better if you can  contact someone really close to discuss this matter",
-	        "Be brave we can find a way to defeat this.If you have suicidal thoughts, you can contact the National Institute of Mental Health at 1926 on this hotline. I'm sure they can help you."
-
-         ],
-         "context":[
+        ],
+        "responses": [
+            "hey buddy be strong",
+            "hey buddy in this life journey there is no reverse only forward so be strong because hard time always drive you the best destination",
+            "hey buddy be strong hard time make you better version of you",
+            "be strong my dear because hard time always drive you the best destination"
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    }, 
 {
-         "tag":"25",
-         "patterns":[
-            "my teeth and head hurts",
-			"feels sick to my stomach and I don’t know why",
-			"My stomach feels like it's touching the ground. I’m SO full",
-			"My head hurts so bad I could scream",
-			"I have a pain in my body",
-			"I'm feeling this pressure in my head that always kicks in just before a nasty headache. I'm not looking forward to this",
-			"Last day at work...Sick to the bone",
-			"Sprained my ankle like really badly and tore some stuffs. It hurts! and it’s my birthday weekend",
-			"I got a giant splinter stuck up underneath my finger nail today at Muppets...it hurt",
-            "I am with a nasty cough i can’t be sick i have a huge weekend ahead of me",
-            "I just go up and I am  so tried  and my armatures is broken somewhere and now I’m in even more pain"
-         ],
-         "responses":[
-            "A simple painkiller such as paracetamol can be used for temporary relief. You should seek medical advice the first time you can..If you have a medical emergency you can call the 1990 hotline",
-	        "If it's not a big deal, we can take painkillers to get rid of it temporarily. If you have a medical emergency you can call the 1990 hotline",
-	        "We try a simple painkiller such as paracetamol. Until we get medical treatment.If you have a medical emergency you can call the 1990 hotline",
-	        "do not be scared. You can contact the emergency medical team via the 1990 hotline"
+        "tag": "45",
+        "patterns": [
+            "Just got home! wanting to watch the last episode of the series but power cut was happened.Guess I am staying home tonight along and no movies. Like hell.Movie store is closed  "
 
-         ],
-         "context":[
+        ],
+        "responses": [
+            "why you worried so much you can see from youtube",
+            "don’t worry buddy you can watch online",
+            "try it online buddy",
+            "don’t worry buddy you can watch online "
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+    }, 
 {
-         "tag":"26",
-         "patterns":[
-            "Going to sleep. Gonne fall asleep playing apps again. Tomorrow is going to suck",
-            "So sleepy again and it's not even that late. I fail once again",
-            "I haven’t sleep enough",
-            "I'm going to bed... I just don't feel right anymore"
-         ],
-         "responses":[
-            "Let's take a break And sleep well",
-	        "You should sleep if you can get a break it will be better",
-	        "Let's try to get a break and sleep",
-	        "Don't afraid. Let's try to get a break and sleep"
+        "tag": "46",
+        "patterns": [
+            "I don’t know what happened to the maid/him/her/ she quit once again"
 
-         ],
-         "context":[
+        ],
+        "responses": [
+            "lets tryto clarify the things between both of you",
+            "why don’t you talk to her and clarify the things between both of you",
+            "its bettrt to clarify you two",
+            "come on buddy lets clarify the things between both of you"
+        ],
+        "context": [
             ""
-         ]
-      },
+        ]
+	},
 {
-         "tag":"27",
-         "patterns":[
-            " Can't sleep. Sucks. The one day i have to sleep in and i have to get up and go shopping with mom",
-            "I can't sleep...I keep over thinking",
-            "Too bad! I hope it gets better. I’m having a sleep issues lately too",
-            "I should be sleep, but I’m not! Thinking about an old friend who I want. But they married and busy now. Damn, they wants me too"
-         ],
-         "responses":[
-            " Let's do some mindfulness activit",
-	        "Don't worry let's do some mindfulness activity.You can forget everything that you are worried about",
-	        "Let's do some  mindfulness activity to get sleep",
-	        "Calm down.Let's do some  mindfulness activity"
+            "tag": "47",
+            "patterns": [
+                "My plantation getting destroy by unknown infection. It spread rapidly. We want rain to our crops but it seems rain will not happened. If so we have to bear a huge lost.currently farmers in the country do not have fertilizer or chemical for their farming"
 
-         ],
-         "context":[
-            ""
-         ]
-      },
+            ],
+            "responses": [
+                "you need help from a person who is professional on this subject",
+                "you need help from a person who is professional on this subject.. And I think you guys need long term solution for this. You can gather and discuss and going for a authorities",
+                "its better to go to the profrssional and ask for help and go for a authorities",
+                "need help of profrssional"
+            ],
+            "context": [
+                ""
+            ]
+        }, 
 {
-         "tag":"28",
-         "patterns":[
-            "My weight has increased. I really hate this",
-            "I almost turn out to be chubby",
-            "I love to have pizza but I am not allowed due to my weight gain",
-            "It’s really make me so stress as I can’t enjoy the food I want due to this bloody fat and weight"
-         ],
-         "responses":[
-            "It doesn't matter. You are still beautiful",
-	        "It doesn't matter. You are still beautiful. But if you want to lose weight, you can do some exercise",
-	        "it's OK. You are always as beautiful as you are",
-	        "Calm down. You are still beautiful. But if you really want to lose weight, you can exercise and control your diet"
+            "tag": "48",
+            "patterns": [
+                "things I want was not available at the market.I went to a several book shops but I couldn’t find the book I want. Whole day was waste.I found a nice outfit,but it is not available in my size "
 
-         ],
-         "context":[
-            ""
-         ]
-      },
+            ],
+            "responses": [
+                "if you really need it why don’t you try online ordering buddy. It will time saving too",
+                "go there after some time they will arrive or go another place to buy them if you in hurry. and if you really need it why don’t you try online ordering buddy. It will time saving too",
+                "go another place to buy them if you in hurry",
+                "lets go to another place if you want you can try online shoping too"
+            ],
+            "context": [
+                ""
+            ]
+        }, 
 {
-         "tag":"29",
-         "patterns":[
-            "I lost my friend",
-            "I miss my parent. I really want to spend time with them again",
-            "I really missing my Husband/ wife. After I lost him l am so alone",
-            "After my Child was gone I felt my whole world is empty",
-            "I just saw pics from this past. I am sad because Grandma/ Grandpa was there",
-            "At my Sleepy time really missing my grandmother right now. Love her so much",
-            "I miss mom. I really want to be her in my sight, I really miss the time spent with her"
-         ],
-         "responses":[
-            "You can pray for them.",
-	        "Do not worry, we pray for them For their own good. They may be looking at you. You have to do your best to make them proud",
-	        "Let us pray for them for their good",
-	        "Let us pray for them for their good.They may be looking at you. You have to do your best to make them proud ."
+            "tag": "49",
+            "patterns": [
+                "tomorrow is Saturday. We can have movie night. OMG I am too excited to event will happened tomorrow. Can’t wait. I party with my friends and had fun. Today we drink, dance for the music. It was fun. After long time we got time to chill with roomies. Movies, jokes, chat, drinks wow. It was just wow.today I got a gift. I was lovely."
 
-         ],
-         "context":[
-            ""
-         ]
-      },
-{
-         "tag":"30",
-         "patterns":[
-            "I was late to work so whole day was bad because all work went wrong. Finally I got scold",
-            "No transportation to reach the office I am already late",
-            "I was late to wake up. The whole day  is cash.",
-            "Boss was shouted on me because I was little bit late"
-         ],
-         "responses":[
-            "Tomorrow you can come little bit earlier",
-	        "Do not be sad. We can come a little early tomorrow. You have to do your best and prove that you are the best",
-	        "Next time we have to come a little earlier.",
-	        "It doesn't matter. Calm down. Next time you should arrive a little earlier. Do your best to prove that you are the best"
+            ],
+            "responses": [
+                "wow that greate. lets enjoy",
+                " nice to here nice to here",
+                "that is nice to here",
+                "good to hear that buddy. lets enjoy"
+            ],
+            "context": [
+                ""
+            ]
+        },
 
-         ],
-         "context":[
-            ""
-         ]
-      },
-{
-         "tag":"31",
-         "patterns":[
-            " Oh my god I passed the exam. Now I can go for my dreams. ",
-            "I won the competition. My god I can’t believe this",
-            "I am really in a good mood. Exam was totally find. All my guesses were there dude",
-            "Finally results out my god my degree is complete now. I am so much happy",
-            "God today is the last day of exams. Finally we end it. Definitely  I am going to celebrate",
-            "OMG I am selected to university. I just got the message. I can’t believe"
-         ],
-         "responses":[
-            "Let's celebrate this. You deserve that. because you work hard",
-	        "Come on, that's a good thing. Why are you upset.You should celebrate this.",
-	        "We should celebrate this",
-	        "Why are you panicking. That's a good thing. Come on, we need to celebrate this"
 
-         ],
-         "context":[
-            ""
-         ]
-      },
-{
-         "tag":"32",
-         "patterns":[
-            " We are going to marry. I am excited about my dreamy wedding.",
-            "Hey today I met a cute girl and had a good conversation. It was cool.",
-            "Hey guess what tomorrow we are going our first hang out. So a trip sounds like fun                                                                                                                                               Hey you know what my crush accept my friend request. My god I am too excited"
-         ],
-         "responses":[
-            "Wow that's a good thing. ",
-	        "Come on, that's a good thing. Do not bother. Everything is going wel.",
-	        "Wow that's good thing.Best of luck",
-	        "Come on, that's a good thing. Be brave."
 
-         ],
-         "context":[
-            ""
-         ]
-      },
-{
-         "tag":"33",
-         "patterns":[
-            "I travel with my friends. It was so much fun",
-            "After a long time we got time to chill with roomies. Movies, jokes, chat, drinks wow. It was just wow",
-            "I party with my friends and had fun",
-            "Today we drink, danced for the music. It was fun",
-            "Wants to hang out with friends SOON"
-         ],
-         "responses":[
-            "Wow that's a nice thing.You deserve that.",
-	        "Come on, that's a good thing. You deserve it. You should be happy.",
-	        "Wow that's a nice thing.You deserve that.",
-	        "Come on, that's a good thing.You deserve that. You should be happy"
+        {
+            "tag": "50",
+            "patterns": [
+                "I travel with my friends. It was so much fun",
+                "After a long time we got time to chill with roomies. Movies, jokes, chat, drinks wow. It was just wow",
+                "I party with my friends and had fun",
+                "Today we drink, danced for the music. It was fun",
+                "Wants to hang out with friends SOON"
+            ],
+            "responses": [
+                "Wow that's a nice thing.You deserve that.",
+                "Come on, that's a good thing. You deserve it. You should be happy.",
+                "Wow that's a nice thing.You deserve that.",
+                "Come on, that's a good thing.You deserve that. You should be happy"
 
-         ],
-         "context":[
-            ""
-         ]
-      }
-   ]
+            ],
+            "context": [
+                ""
+            ]
+        }
+
+
+    ]
 }
-

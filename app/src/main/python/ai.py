@@ -4,7 +4,7 @@ from nltk.stem.lancaster import LancasterStemmer
 import numpy as np
 import pickle
 from os.path import dirname, join
-import json
+import re, json
 from tensorflow import keras
 from tensorflow.keras.models import load_model
 stemmer = nltk.stem.PorterStemmer()
@@ -59,7 +59,7 @@ def predict_class(sentence, model):
 
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOD = 0.25
+    ERROR_THRESHOD = 0.05
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOD]
     # sort by probability
     results.sort(key=lambda x: x[1], reverse=True)
@@ -70,6 +70,17 @@ def predict_class(sentence, model):
 
 #pic emotion response
 def getResponse(ints, groups_json, emotion):
+    if(emotion == "happy"):
+        emotion = 0
+    elif(emotion == "sad"):
+        emotion = 1
+    elif(emotion == "neutral"):
+        emotion = 2
+    elif(emotion == "fear"):
+        emotion = 3
+    else:
+        emotion = 0
+
     if len(ints) != 0:
         tag = ints[0]['groups']
         list_of_intents = groups_json['intents']
@@ -90,4 +101,4 @@ def amita_response(msg, emotion):
     model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    return res +"  tag> "+ints[0]['groups']+"  emotion> "+str(emotion)
+    return res +"/"+re.sub(r'[^a-zA-Z.]', ' ', res)

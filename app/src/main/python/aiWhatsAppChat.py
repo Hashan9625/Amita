@@ -58,7 +58,7 @@ def predict_class(sentence, model):
     p = bow(sentence, words)
 
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOD = 0.01
+    ERROR_THRESHOD = 0.05
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOD]
     # sort by probability
     results.sort(key=lambda x: x[1], reverse=True)
@@ -116,4 +116,4 @@ def amita_response(msg, emotion):
     model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    return res
+    return res +"/"+re.sub(r'[^a-zA-Z.]', ' ', res)
