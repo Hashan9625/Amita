@@ -6,4 +6,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
     <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="ask">ask</string>
+    <string name="emotion_detect">emotion Detect</string>
+    <string name="reply">Reply</string>
+    <string name="normal">😶</string>
+    <string name="detected_emotion">Detected Emotion</string>
+    <string name="message">Message</string>
 </resources>

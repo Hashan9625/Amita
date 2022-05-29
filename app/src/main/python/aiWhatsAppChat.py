@@ -116,4 +116,4 @@ def amita_response(msg, emotion):
     model = load_model(filenameModel, compile = False)
     ints = predict_class(msg, model)
     res = getResponse(ints, intents, emotion)
-    return res +"/"+re.sub(r'[^a-zA-Z.]', ' ', res)
+    return res +"/"+re.sub(r'[^a-zA-Z.\']', ' ', res)

@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/layout/activity_main.xml" value="0.2015625" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/box_bg_transparent_border_gray_1.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/box_bg_transparent_border_gray_4.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/box_discover.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/box_leaderboard.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/btn_orange_yellow.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/form_field_white.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/drawable-v24/img_thumbnail.xml" value="0.2265" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/layout-v26/activity_main.xml" value="0.35052083333333334" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Softwere/AndroidStudioProjects/Amita/app/src/main/res/layout/list_item_discover__goal_category.xml" value="0.35052083333333334" />
       </map>
     </option>
   </component>
