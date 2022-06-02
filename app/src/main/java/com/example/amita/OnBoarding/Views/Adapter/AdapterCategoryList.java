@@ -18,10 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.amita.OnBoarding.Views.Common.Common;
 import com.example.amita.OnBoarding.Views.Interface.ItemClickListener;
 import com.example.amita.R;
-import java.lang.ref.WeakReference;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView key;
@@ -56,7 +54,7 @@ public class AdapterCategoryList extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.list_item_discover__goal_category,parent,false);
+        View view = inflater.inflate(R.layout.category_list_item,parent,false);
         return new ViewHolder(view);
     }
 

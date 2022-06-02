@@ -29,7 +29,7 @@ while not nltk.download('stopwords'):
     print("Retrying download - stopwords")
 
 def main(sentence, emotion):
-    print(sentence)
+    print("--------------"+sentence)
     return amita_response(sentence,emotion)
 
 def clean_up_sentence(sentence):
@@ -83,6 +83,7 @@ def getResponse(ints, groups_json, emotion):
 
     if len(ints) != 0:
         tag = ints[0]['groups']
+        print(tag)
         list_of_intents = groups_json['intents']
         for i in list_of_intents:
             if i['tag'] == tag:

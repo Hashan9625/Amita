@@ -21,6 +21,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.media.AudioManager;
+import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -41,10 +42,18 @@ import com.example.amita.OnBoarding.Interactor.OnBoardingInteractor;
 import com.example.amita.OnBoarding.Views.Adapter.AdapterCategoryList;
 import com.example.amita.OnBoarding.Views.Common.Common;
 import com.example.amita.R;
+import com.example.amita.ml.ModelEmotion;
 import com.google.common.util.concurrent.ListenableFuture;
+
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -63,10 +72,9 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
     PyObject emotionDetectionInVoice;
     PyObject emotionDetectionPy;
     private TextToSpeech textToSpeech;
-    ImageView detectImage;
 
-    BitmapDrawable drawable;
-    Bitmap bitmap;
+    // Images
+    int imageSize = 224;
     String imageString = "";
     private int emotion = 0;
     String[] emotionArray = {"", "happy", "sad", "neutral", "fear"};
@@ -149,12 +157,8 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
             }
         }, getExecutor());
 
-        
-
         findViewById(R.id.ask).setOnClickListener(this);
-//        findViewById(R.id.emotion).setOnClickListener(this);
         findViewById(R.id.emotionDetect).setOnClickListener(this);
-//        cameraProviderFu
     }
 
     private Executor getExecutor() {
@@ -189,14 +193,9 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
                     promptSpeechInput();
                 break;
             case R.id.emotionDetect:
-                    emotionDetection();
+//                    emotionDetection();
+                    emotionDetectionChaquopy();
                 break;
-//            case R.id.emotion:
-//                if(emotion == 4)
-//                    emotion = 0;
-//                else
-//                    emotion++;
-//                break;
         }
     }
 
@@ -221,16 +220,75 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
         });
     }
 
-    private void emotionDetection() {
-//        drawable = (BitmapDrawable)detectImage.getDrawable();
-//        bitmap = drawable.getBitmap();
-//        imageString = getStringImage(bitmap);
+    private void emotionDetectionChaquopy() {
+        // call python
+        Bitmap image = previewView.getBitmap();
+        assert image != null;
 
+        imageString = getStringImage(image);
         emotionDetectionPy =  py.getModule("emotionDetection");
         PyObject main = emotionDetectionPy.callAttr("main",imageString);
         String responseText = main.toString();
         Log.d(ContentValues.TAG,"emotionDetection-------------------------------------------- "+responseText);
-        interactor.emotionDetection();
+    }
+
+    private void emotionDetection() {
+        Bitmap image = previewView.getBitmap();
+        assert image != null;
+
+        int dimension = image.getWidth();
+        image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
+
+        image = Bitmap.createScaledBitmap(image, imageSize, imageSize, true);
+
+        try {
+            ModelEmotion model = ModelEmotion.newInstance(getApplicationContext());
+
+            // Creates inputs for reference.
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize *3);
+            byteBuffer.order(ByteOrder.nativeOrder());
+
+            int[] intValues = new int[imageSize * imageSize];
+            image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
+
+            int pixel = 0;
+            for (int i = 0; i < imageSize; i++) {
+                for (int j = 0; j<imageSize; j++) {
+                    int val = intValues[pixel++];
+                    byteBuffer.putFloat(((val >> 16 ) & 0xFF) * (1.f / 255));
+                    byteBuffer.putFloat(((val >> 8 ) & 0xFF) * (1.f / 255));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f / 255));
+                }
+            }
+
+            inputFeature0.loadBuffer(byteBuffer);
+
+            // Runs model inference and gets result.
+            ModelEmotion.Outputs outputs = model.process(inputFeature0);
+            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+
+            float[] confidences = outputFeature0.getFloatArray();
+
+            // find biggest confidence
+            int maxPos = 0;
+            float maxConfidence = 0;
+            for (int i = 0; i < confidences.length; i++) {
+                if(confidences[i] > maxConfidence) {
+                    maxConfidence = confidences[i];
+                    maxPos=i;
+                }
+            }
+
+            String[] emotions = {"angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"};
+            emotionText.setText(emotions[maxPos]);
+
+            // Releases model resources if no longer used.
+            model.close();
+        } catch (IOException e) {
+            showError(e.getMessage());
+        }
     }
 
     private String getStringImage(Bitmap bitmap) {
@@ -239,8 +297,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
 
         byte[] imageByte = baos.toByteArray();
 
-        String encodedImage = android.util.Base64.encodeToString(imageByte, Base64.DEFAULT);
-        return encodedImage;
+        return Base64.encodeToString(imageByte, Base64.DEFAULT);
     }
 
     /**
@@ -267,48 +324,54 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQ_CODE_SPEECH_INPUT: {
-                if (resultCode == RESULT_OK && null != data) {
+        try {
 
-                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    spokeText.setText(result.get(0));
-                    que = result.get(0);
+            switch (requestCode) {
+                case REQ_CODE_SPEECH_INPUT: {
+                    if (resultCode == RESULT_OK && null != data) {
 
-                    PyObject emotionOutput = emotionDetectionInVoice.callAttr("main",que);
-                    String emotionOutputString = emotionOutput.toString();
-                    Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- voice emotion output--- > "+emotionOutputString);
+                        ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                        spokeText.setText(result.get(0));
+                        que = result.get(0);
 
-                    PyObject verbalResponse;
-                    if(Common.model_index == 0) {
-                        verbalResponse = ai.callAttr("main",que,emotionOutputString);
-                    } else if(Common.model_index == 1) {
-                        verbalResponse = aiWhatsAppChat.callAttr("main",que,emotionOutputString);
-                    } else {
-                        verbalResponse = ai.callAttr("main",que,emotionOutputString);
+                        PyObject emotionOutput = emotionDetectionInVoice.callAttr("main",que);
+                        String emotionOutputString = emotionOutput.toString();
+                        Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- voice emotion output--- > "+emotionOutputString);
+
+                        PyObject verbalResponse;
+                        if(Common.model_index == 0) {
+                            verbalResponse = ai.callAttr("main",que,emotionOutputString);
+                        } else if(Common.model_index == 1) {
+                            verbalResponse = aiWhatsAppChat.callAttr("main",que,emotionOutputString+"//");
+                        } else {
+                            verbalResponse = ai.callAttr("main",que,emotionOutputString);
+                        }
+
+                        String responseText = verbalResponse.toString();
+                        String toDisplay = responseText.split("/")[0];
+                        String toSpeech = responseText.split("/")[1];
+
+                        // display reply
+                        response.setText(toDisplay);
+                        // display emotion
+                        if(emotionOutputString.equals("happy")) {
+                            emotionText.setText("\uD83D\uDE42");
+                        } else if(emotionOutputString.equals("sad")) {
+                            emotionText.setText("\uD83D\uDE1E");
+                        } else {
+                            emotionText.setText(emotionOutputString);
+                        }
+
+                        //Speech
+                        textToSpeech(toSpeech);
                     }
-
-                    String responseText = verbalResponse.toString();
-                    String toDisplay = responseText.split("/")[0];
-                    String toSpeech = responseText.split("/")[1];
-
-                    // display reply
-                    response.setText(toDisplay);
-                    // display emotion
-                    if(emotionOutputString.equals("happy")) {
-                        emotionText.setText("\uD83D\uDE42");
-                    } else if(emotionOutputString.equals("sad")) {
-                        emotionText.setText("\uD83D\uDE1E");
-                    } else {
-                        emotionText.setText(emotionOutputString);
-                    }
-
-                    //Speech
-                    textToSpeech(toSpeech);
-
+                    break;
                 }
-                break;
             }
+
+        } catch (Exception e) {
+            showError(e.getMessage());
+            Log.d(ContentValues.TAG,"OnBoardingView.java-------------------------------------------- error "+e.getMessage());
         }
     }
 
