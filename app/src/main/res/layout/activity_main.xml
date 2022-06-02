@@ -9,7 +9,7 @@
     tools:context=".OnBoarding.Views.OnBoardingView">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/discover_goal_category"
+        android:id="@+id/model_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:paddingStart="@dimen/_4sdp"
         android:paddingEnd="@dimen/_4sdp"
-        android:layout_below="@id/discover_goal_category"
+        android:layout_below="@id/model_category"
         android:layout_above="@id/ask"
         android:orientation="vertical">
 

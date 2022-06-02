@@ -18,8 +18,6 @@ import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.GradientDrawable;
 import android.media.AudioManager;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
@@ -31,7 +29,6 @@ import android.speech.tts.UtteranceProgressListener;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,11 +43,9 @@ import com.example.amita.ml.ModelEmotion;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.image.TensorImage;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -103,7 +98,7 @@ public class OnBoardingView extends AppCompatActivity implements View.OnClickLis
 
         //RecyclerView for select model
         adapterCategoryList = new AdapterCategoryList(this, arrayList);
-        RecyclerView recyclerViewDiscoverGoalCategory = findViewById(R.id.discover_goal_category);
+        RecyclerView recyclerViewDiscoverGoalCategory = findViewById(R.id.model_category);
         LinearLayoutManager layoutManagerHorizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewDiscoverGoalCategory.setLayoutManager(layoutManagerHorizontal);
         recyclerViewDiscoverGoalCategory.setItemViewCacheSize(11);
